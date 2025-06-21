@@ -1,4 +1,5 @@
 import './App.css'
+import demoPic from "../src/assets/react.svg"
 
 let today = new Date().toLocaleDateString();
 let time = new Date().toLocaleTimeString();
@@ -27,11 +28,26 @@ function Header() {
   )
 }
 
+const name = "ahihia";
+
+function DinamicValue () {
+  return (
+    <>
+      <h2> Chao {name}</h2>
+      <p>
+        Ket qua {1 + 2 * 4}
+      </p>
+      <img src={demoPic}></img>
+    </>
+  )
+}
+
 function App() {
 
   return (
     <>
       <Header></Header>
+      <DinamicValue></DinamicValue>
     </>
   )
 }
