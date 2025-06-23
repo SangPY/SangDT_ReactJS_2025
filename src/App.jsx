@@ -5,8 +5,8 @@ import TabButton from "./components/TabButton.jsx";
 
 function App() {
   
-    function handleClick() {
-      alert("Nút bấm được click");
+    function handleClick(selectButton) {
+      alert(`${selectButton} được chọn`);
     }
 
   return (
@@ -26,10 +26,10 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={handleClick}>Components</TabButton>
-            <TabButton onSelect={handleClick}>JSX</TabButton>
-            <TabButton onSelect={handleClick}>Props</TabButton>
-            <TabButton onSelect={handleClick}>State</TabButton>
+            <TabButton onSelect={()=>{handleClick('components')}}>Components</TabButton>
+            <TabButton onSelect={()=>{handleClick('jsx')}}>JSX</TabButton>
+            <TabButton onSelect={()=>{handleClick('props')}}>Props</TabButton>
+            <TabButton onSelect={()=>{handleClick('state')}}>State</TabButton>
             {/* <TabButton batky="Components"></TabButton> */}
           </menu>
           Somee content
