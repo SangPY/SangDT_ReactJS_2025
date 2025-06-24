@@ -5,7 +5,7 @@ import TabButton from "./components/TabButton.jsx";
 import { useState } from "react";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("components");
+  const [selectedTopic, setSelectedTopic] = useState();
   console.log("App được gọi");
 
   function handleSelect(selectedButton) {
@@ -35,13 +35,17 @@ function App() {
             <TabButton onSelect={()=>{handleSelect('state')}}>State</TabButton>
             {/* <TabButton batky="Components"></TabButton> */}
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].desc}</p>
-            <pre>
-              <code>{EXAMPLES[selectedTopic].code}</code>
-            </pre>
-          </div>
+          {!selectedTopic ? (<p> Vui lòng click vào nút để lựa chọn 1 chủ đề</p>)
+            : (
+              <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].desc}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+            )
+          }
         </section>
       </main>
     </>
