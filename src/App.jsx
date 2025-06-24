@@ -1,40 +1,33 @@
-import MainContent from "./components/MainContent/MainContent.jsx";
-import Header from "./components/Header/Header.jsx";
-import {Sangdata} from "../data.js";
-import TabButton from "./components/TabButton.jsx";
+import { useState } from "react";
 
 function App() {
-  
-    function handleClick(selectButton) {
-      alert(`${selectButton} được chọn`);
+  const [greeting, setGreeting] = useState("Chào bạn!")
+
+  function updateGreeting (){
+    // setGreeting("Chào Sang");
+    const currentHour = new Date().getHours();
+    console.log(currentHour);
+
+    //const currentHour = 23;
+
+    if(currentHour >=5 && currentHour <12)
+    {
+      setGreeting("Chào Buổi Sáng");
     }
+    else if(currentHour >=12 && currentHour <18)
+    {
+      setGreeting("Chào Buổi Chiều");
+    }
+    else
+    {
+      setGreeting("Chào Buổi Tối");
+    }
+  }
 
   return (
     <>
-      <Header />
-      <main>
-        <section id="core-concepts">
-          <h2>Khái niệm chính trong React</h2>
-          <ul>
-            <MainContent {...Sangdata[0]} />
-            <MainContent {...Sangdata[1]} />
-            <MainContent {...Sangdata[2]} />
-            <MainContent {...Sangdata[3]} />
-          </ul>
-        </section>
-
-        <section id="examples">
-          <h2>Examples</h2>
-          <menu>
-            <TabButton onSelect={()=>{handleClick('components')}}>Components</TabButton>
-            <TabButton onSelect={()=>{handleClick('jsx')}}>JSX</TabButton>
-            <TabButton onSelect={()=>{handleClick('props')}}>Props</TabButton>
-            <TabButton onSelect={()=>{handleClick('state')}}>State</TabButton>
-            {/* <TabButton batky="Components"></TabButton> */}
-          </menu>
-          Somee content
-        </section>
-      </main>
+      <h1>{greeting}</h1>
+      <button onClick={updateGreeting}>Cập nhập lời chào</button>
     </>
   );
 }
