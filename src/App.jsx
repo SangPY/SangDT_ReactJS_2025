@@ -1,12 +1,19 @@
+import { useState } from "react";
 import MainContent from "./components/MainContent/MainContent.jsx";
 import Header from "./components/Header/Header.jsx";
 import {Sangdata} from "../data.js";
 import TabButton from "./components/TabButton.jsx";
 
 function App() {
-  
+  const [selectTopic, setselectTopic] = useState("Vui lòng click vào");
+  console.log("App được gọi");
+  //useState();
+  //let tabContent = "Noi dung duoc hien thi";
+
     function handleClick(selectButton) {
-      alert(`${selectButton} được chọn`);
+      // alert(`${selectButton} được chọn`);
+      // tabContent = selectButton;
+      setselectTopic(selectButton);
     }
 
   return (
@@ -32,7 +39,7 @@ function App() {
             <TabButton onSelect={()=>{handleClick('state')}}>State</TabButton>
             {/* <TabButton batky="Components"></TabButton> */}
           </menu>
-          Somee content
+          Somee content : {selectTopic}
         </section>
       </main>
     </>
