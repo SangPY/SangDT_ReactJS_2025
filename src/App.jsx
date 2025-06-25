@@ -19,10 +19,14 @@ function App() {
         <section id="core-concepts">
           <h2>Khái niệm chính trong React</h2>
           <ul>
-            <MainContent {...Sangdata[0]} />
+            {/* <MainContent {...Sangdata[0]} />
             <MainContent {...Sangdata[1]} />
             <MainContent {...Sangdata[2]} />
-            <MainContent {...Sangdata[3]} />
+            <MainContent {...Sangdata[3]} /> */}
+            {Sangdata.map((item) => (
+              <MainContent key = {item.title}{...item}></MainContent>
+            )
+            )}
           </ul>
         </section>
 
